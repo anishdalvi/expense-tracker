@@ -42,11 +42,22 @@ h4 {
 
 .inc-exp-container {
   background-color: #fff;
+  /* blue - #1F2A40 */
+  /* background-color: #1F2A40; */
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+}
+
+.inc-exp-container #income{
+  color: green;
+  
+}
+
+.inc-exp-container #expense{
+  color: red;
 }
 
 .inc-exp-container > div {
@@ -59,17 +70,19 @@ h4 {
 }
 
 .money {
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: 1px;
   margin: 5px 0;
 }
 
 .money.plus {
   color: #2ecc71;
+  font-weight: bolder;
 }
 
 .money.minus {
   color: #c0392b;
+  font-weight: bolder;
 }
 
 label {
