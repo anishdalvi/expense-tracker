@@ -18,6 +18,11 @@ app.use(express.json());
 
 app.use(cors()) // Use this after the variable declaration
 
+const userRouter = require('./routes/user')
+app.use('/user',userRouter)
+
+
+
 /* if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }

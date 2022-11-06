@@ -1,7 +1,7 @@
 const Transaction = require('../models/Transaction');
 
 // @desc    Get all transactions
-// @route   GET /api/v1/transactions
+// @route   GET /api/v1
 // @access  Public
 exports.getTransactions = async (req, res, next) => {
   try {
@@ -21,7 +21,7 @@ exports.getTransactions = async (req, res, next) => {
 }
 
 // @desc    Add transaction
-// @route   POST /api/v1/transactions
+// @route   POST /api/v1
 // @access  Public
 exports.addTransaction = async (req, res, next) => {
   try {
@@ -51,7 +51,7 @@ exports.addTransaction = async (req, res, next) => {
 }
 
 // @desc    Delete transaction
-// @route   DELETE /api/v1/transactions/:id
+// @route   DELETE /api/v1/:id
 // @access  Public
 exports.deleteTransaction = async (req, res, next) => {
   try {

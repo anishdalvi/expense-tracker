@@ -3,13 +3,34 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 
-const Form = () => {
+
+const Form = ({setUserState,username}) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
     console.log(values);
   };
+
+ const[user,setUser] = useState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      contact: "",
+      address: "",
+  })
+  
+  
+const handleChange = e => {
+      const { name, value} = e.target
+      setUser({
+          ...user,
+          [name]:value
+      })
+  }
+
 
   return (
     <Box m="20px">
@@ -19,6 +40,7 @@ const Form = () => {
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
         validationSchema={checkoutSchema}
+        onChange={handleChange}
       >
         {({
           values,
@@ -44,7 +66,7 @@ const Form = () => {
                 placeholder="First Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
+                value={username}
                 name="firstName"
                 error={!!touched.firstName && !!errors.firstName}
                 helperText={touched.firstName && errors.firstName}
@@ -55,7 +77,7 @@ const Form = () => {
                 variant="filled"
                 type="text"
                 placeholder="Last Name"
-                onBlur={handleBlur}
+                //onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.lastName}
                 name="lastName"
@@ -102,19 +124,7 @@ const Form = () => {
                 helperText={touched.address1 && errors.address1}
                 sx={{ gridColumn: "span 4" }}
               />
-              {/* <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
-                sx={{ gridColumn: "span 4" }}
-              /> */}
+              
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
@@ -147,7 +157,7 @@ const initialValues = {
   lastName: "",
   email: "",
   contact: "",
-  address1: "",
+  address: "",
   //address2: "",
 };
 

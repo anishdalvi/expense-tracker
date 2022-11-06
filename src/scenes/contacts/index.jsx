@@ -4,6 +4,10 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import React, { useContext, useEffect } from 'react';
+//import { Transaction } from '../scenes/expense-tracker/components/Transaction';
+
+import { GlobalContext } from '../expense-tracker/context/GlobalState';
 
 const Contacts = () => {
   const theme = useTheme();
@@ -11,43 +15,21 @@ const Contacts = () => {
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    { field: "text", headerName: "Text" },
     {
-      field: "name",
-      headerName: "Name",
+      field: "amount",
+      headerName: "Amount",
       flex: 1,
       cellClassName: "name-column--cell",
     },
+    
+    
+    
+    
+    
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
+      field: "Date",
+      headerName: "Date",
       flex: 1,
     },
   ];
@@ -55,8 +37,8 @@ const Contacts = () => {
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="History"
+        subtitle="List of Transactions"
       />
       <Box
         m="40px 0 0 0"
@@ -90,11 +72,7 @@ const Contacts = () => {
           },
         }}
       >
-        <DataGrid
-          rows={mockDataContacts}
-          columns={columns}
-          components={{ Toolbar: GridToolbar }}
-        />
+        
       </Box>
     </Box>
   );
